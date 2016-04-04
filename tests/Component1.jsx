@@ -1,17 +1,17 @@
 module.exports = function() {
   /**
-   * react
-   * coucou copain
-   * salut a tous
-   * bonjour lolllll
+   * react component
+   * line1
+   * line2
+   * line3
    */
   return React.createClass({
     propTypes: {
       /**
-       * toto prop
-       * prop 2
-       * this is lolilol
-       * rire
+       * prop1
+       * line1
+       * line2
+       * line3
        */
       prop1: React.PropTypes.arrayOf(React.PropTypes.shape({
         prop2: React.PropTypes.number

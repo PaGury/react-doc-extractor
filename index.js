@@ -18,14 +18,19 @@ const isReactCreateClassCall = (path) => {
 };
 
 const extractComponentProperties = (path) => {
-  let properties = {};
+  let properties = [];
 
   recast.visit(path.value, {
     visitProperty(path) {
       if (path.value.key.name === 'propTypes') {
         recast.visit(path.value.value, {
           visitProperty(path) {
-            properties[path.value.key.name] = recast.print(path.value.value).code;
+            properties.push({
+              key: path.value.key.name,
+              type: recast.print(path.value.value).code,
+              comments: convertCommentsNodes(path.value.comments)
+            });
+
             return false;
           }
         });

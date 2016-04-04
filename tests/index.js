@@ -10,5 +10,8 @@ describe('parsing', function() {
     const metadatas = extract(component1File)[0];
     assert.equal(metadatas.comments.length, 4);
     assert.equal(_.keys(metadatas.properties).length, 1);
+    assert.equal(metadatas.properties[0].comments.length, 4);
+
+    fs.writeFileSync('toto.json', JSON.stringify(extract(component1File)), 'utf8');
   });
 });
