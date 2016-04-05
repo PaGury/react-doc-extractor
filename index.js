@@ -43,22 +43,6 @@ const extractComponentProperties = (path) => {
   return properties
 };
 
-const salut = () => {
-  let a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-  a = "";
-
-};
-
 const extractNewComponent = (path) => {
   return {
     comments: convertCommentsNodes(path.parentPath.value.comments),
