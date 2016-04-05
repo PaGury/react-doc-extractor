@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/index.js"
+    "test": "nyc --check-coverage --report-dir=${CIRCLE_ARTIFACTS:-'./nyc-reports'} --reporter=lcov npm run mocha",
+    "mocha": "./node_modules/.bin/mocha tests/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "nyc": "^6.1.1"
+  },
+  "nyc": {
+    "lines": 90,
+    "exclude": [
+      "tests/**/*.js"
+    ]
   }
 }
